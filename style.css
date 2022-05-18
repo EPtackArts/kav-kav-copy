@@ -1,0 +1,22 @@
+div{
+    border: 1px solid black;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: sans-serif;
+    text-align: center;
+}
+header {
+    position: relative;
+    transformX: 50%;
+}
+li {
+    list-style: none;
+    margin-left: -50px;
+}
+#bannerryan {
+    margin-top: -30px;
+    z-index: 1;
+}
