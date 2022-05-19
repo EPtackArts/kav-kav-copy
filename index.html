@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KavKavCopy</title>
     <link rel="stylesheet" href="style.css">
-</head>
 <body>
     <header>
         <nav>
             <div>
-                <h4>Does Ryan Kavanaugh Look Like <br>Harvey Weinstein?</h4>
+                <h4 id="header">Does Ryan Kavanaugh Look Like <br>Harvey Weinstein?</h4>
             </div>
             <div>
                 <ul>
-                    <li>Home</li>
+                    <li id="home">Home</li>
                     <li>Game</li>
                     <li>Articles</li>
-                    <li class="button">Statement</li>
+                    <li><button>Statement</button></li>
                 </ul>
             </div>
         </nav>
@@ -26,35 +25,280 @@
     <main>
         <div id="banner">
             <span>
-                <img id="bannerryan" src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanugh-Microphone.png" alt="a photo of Ryan Kavanaugh...or maybe Harvey Weinstein">
+                <img id="bannerryan" 
+                src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanugh-Microphone.png" 
+                alt="a photo of Ryan Kavanaugh...or maybe Harvey Weinstein">
             </span>
             <span>
-                <h1>Does Ryan Kavanaugh <br>Look Like Harvey Weinstein?</h1>
-                <h6>A COMPERHENSIVE ANALYSIS</h6>
-                <hr>
+                <h1><span class="thintype">Does Ryan Kavanaugh</span> <br><span class="boldtype">Look Like Harvey Weinstein?</span></h1>
+                <h6 class="thintype" id="analysis">A COMPERHENSIVE ANALYSIS</h6>
+                <hr id="hr1">
             </span>
         </div>
         <div id="poll">
-            <h2>The Public <br>Is Confused.</h2>
+            <h2><span class="thintype">The Public</span> <br><span class="boldtype">Is Confused.</span></h2>
+            <hr id="hr2">
             <p>We asked 10,600 internet users if they thought Ryan Kavanaugh and Harvey Weinstein looked alike. The outcome was SHOCKING.</p>
-            <img src="https://i.imgur.com/2FDWSIN.png">        
+            <img id="pie"
+            src="https://storage.googleapis.com/picboi-39298.appspot.com/final/t82l2vVu_1000x800"
+            alt="pie chart displaying that 95% of the poll thinks Ryan Kavanaugh looks like Harvey Weinstein">
+            <br>
+            <a href="https://www.strawpoll.me/45535233/r">SOURCE: Poll of H3 Podcast Audience Jul 30, 2021</a>
         </div>
         <div id="sidebyside">
-            <h2>Depsite Looking Nearly Identical They Are Indeed Different People</h2>
-            <h6>Ryan and Harvey are in fact two different people.</h6>
-            <hr>
-            <h3>Check these side by side comparisons out!</h3>
+            <img class="cropped"
+            src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Harvey-Weinstein-Smiling.jpg"
+            alt="photo of Harvey Weinstien smiling">
+            <img class="cropped"
+            src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanugh-Smiling-at-gala.jpg"
+            alt="photo of Ryan Kavanaugh smiling">
+            <h2 class="whitetext" id="despite"><span class="thintype">Depsite Looking Nearly Identical They Are Indeed Different People</span></h2>
+            <h6 class= "whitetext">
+                <span class="thintype">Ryan and Harvey are in fact two different people.</span>
+            </h6>
+            <hr id="hr3">
+            <h3 class="whitetext">
+                <span class="boldsmall">Check these side by side comparisons out!</span>
+            </h3>
+            <div class="img-comp-container">
+                <div class="img-comp-img">
+                  <img class="slide"
+                  src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Harvey-Weinstein.jpg" 
+                  alt="a photo of harvey weinstein, when you slide the image back and forth it connects his face to ryan's">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                  <img class="slide"
+                  src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanugh-1.jpg" 
+                  alt="a photo of ryan Kavanaugh, when you slide the image back and forth it connects his face to harvey's">
+                </div>
+                <script>
+                    function initComparisons() {
+                      var x, i;
+                      /*find all elements with an "overlay" class:*/
+                      x = document.getElementsByClassName("img-comp-overlay");
+                      for (i = 0; i < x.length; i++) {
+                        /*once for each "overlay" element:
+                        pass the "overlay" element as a parameter when executing the compareImages function:*/
+                        compareImages(x[i]);
+                      }
+                      function compareImages(img) {
+                        var slider, img, clicked = 0, w, h;
+                        /*get the width and height of the img element*/
+                        w = img.offsetWidth;
+                        h = img.offsetHeight;
+                        /*set the width of the img element to 50%:*/
+                        img.style.width = (w / 2) + "px";
+                        /*create slider:*/
+                        slider = document.createElement("DIV");
+                        slider.setAttribute("class", "img-comp-slider");
+                        /*insert slider*/
+                        img.parentElement.insertBefore(slider, img);
+                        /*position the slider in the middle:*/
+                        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+                        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+                        /*execute a function when the mouse button is pressed:*/
+                        slider.addEventListener("mousedown", slideReady);
+                        /*and another function when the mouse button is released:*/
+                        window.addEventListener("mouseup", slideFinish);
+                        /*or touched (for touch screens:*/
+                        slider.addEventListener("touchstart", slideReady);
+                        /*and released (for touch screens:*/
+                        window.addEventListener("touchend", slideFinish);
+                        function slideReady(e) {
+                          /*prevent any other actions that may occur when moving over the image:*/
+                          e.preventDefault();
+                          /*the slider is now clicked and ready to move:*/
+                          clicked = 1;
+                          /*execute a function when the slider is moved:*/
+                          window.addEventListener("mousemove", slideMove);
+                          window.addEventListener("touchmove", slideMove);
+                        }
+                        function slideFinish() {
+                          /*the slider is no longer clicked:*/
+                          clicked = 0;
+                        }
+                        function slideMove(e) {
+                          var pos;
+                          /*if the slider is no longer clicked, exit this function:*/
+                          if (clicked == 0) return false;
+                          /*get the cursor's x position:*/
+                          pos = getCursorPos(e)
+                          /*prevent the slider from being positioned outside the image:*/
+                          if (pos < 0) pos = 0;
+                          if (pos > w) pos = w;
+                          /*execute a function that will resize the overlay image according to the cursor:*/
+                          slide(pos);
+                        }
+                        function getCursorPos(e) {
+                          var a, x = 0;
+                          e = (e.changedTouches) ? e.changedTouches[0] : e;
+                          /*get the x positions of the image:*/
+                          a = img.getBoundingClientRect();
+                          /*calculate the cursor's x coordinate, relative to the image:*/
+                          x = e.pageX - a.left;
+                          /*consider any page scrolling:*/
+                          x = x - window.pageXOffset;
+                          return x;
+                        }
+                        function slide(x) {
+                          /*resize the image:*/
+                          img.style.width = x + "px";
+                          /*position the slider:*/
+                          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+                        }
+                      }
+                    }
+                    </script>
+            </div>
+            <div class="img-comp-container">
+                <div class="img-comp-img">
+                  <img class="slide"
+                  src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanugh.jpg"
+                  alt="a photo of harvey weinstein, when you slide the image back and forth it connects his face to ryan's">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                  <img class="slide"
+                  src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Harvey-weinstein-looks-like-ryan-kavanugh.jpg"
+                  alt="a photo of ryan Kavanaugh, when you slide the image back and forth it connects his face to harvey's">
+                </div>
+                <script>
+                    function initComparisons() {
+                      var x, i;
+                      /*find all elements with an "overlay" class:*/
+                      x = document.getElementsByClassName("img-comp-overlay");
+                      for (i = 0; i < x.length; i++) {
+                        /*once for each "overlay" element:
+                        pass the "overlay" element as a parameter when executing the compareImages function:*/
+                        compareImages(x[i]);
+                      }
+                      function compareImages(img) {
+                        var slider, img, clicked = 0, w, h;
+                        /*get the width and height of the img element*/
+                        w = img.offsetWidth;
+                        h = img.offsetHeight;
+                        /*set the width of the img element to 50%:*/
+                        img.style.width = (w / 2) + "px";
+                        /*create slider:*/
+                        slider = document.createElement("DIV");
+                        slider.setAttribute("class", "img-comp-slider");
+                        /*insert slider*/
+                        img.parentElement.insertBefore(slider, img);
+                        /*position the slider in the middle:*/
+                        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+                        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+                        /*execute a function when the mouse button is pressed:*/
+                        slider.addEventListener("mousedown", slideReady);
+                        /*and another function when the mouse button is released:*/
+                        window.addEventListener("mouseup", slideFinish);
+                        /*or touched (for touch screens:*/
+                        slider.addEventListener("touchstart", slideReady);
+                        /*and released (for touch screens:*/
+                        window.addEventListener("touchend", slideFinish);
+                        function slideReady(e) {
+                          /*prevent any other actions that may occur when moving over the image:*/
+                          e.preventDefault();
+                          /*the slider is now clicked and ready to move:*/
+                          clicked = 1;
+                          /*execute a function when the slider is moved:*/
+                          window.addEventListener("mousemove", slideMove);
+                          window.addEventListener("touchmove", slideMove);
+                        }
+                        function slideFinish() {
+                          /*the slider is no longer clicked:*/
+                          clicked = 0;
+                        }
+                        function slideMove(e) {
+                          var pos;
+                          /*if the slider is no longer clicked, exit this function:*/
+                          if (clicked == 0) return false;
+                          /*get the cursor's x position:*/
+                          pos = getCursorPos(e)
+                          /*prevent the slider from being positioned outside the image:*/
+                          if (pos < 0) pos = 0;
+                          if (pos > w) pos = w;
+                          /*execute a function that will resize the overlay image according to the cursor:*/
+                          slide(pos);
+                        }
+                        function getCursorPos(e) {
+                          var a, x = 0;
+                          e = (e.changedTouches) ? e.changedTouches[0] : e;
+                          /*get the x positions of the image:*/
+                          a = img.getBoundingClientRect();
+                          /*calculate the cursor's x coordinate, relative to the image:*/
+                          x = e.pageX - a.left;
+                          /*consider any page scrolling:*/
+                          x = x - window.pageXOffset;
+                          return x;
+                        }
+                        function slide(x) {
+                          /*resize the image:*/
+                          img.style.width = x + "px";
+                          /*position the slider:*/
+                          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+                        }
+                      }
+                    }
+                    </script>
+            </div>
         </div>
         <div id="opinion">
-            <h6>The Pubic's Opinion</h6>
+            <h6 class="thintype">The Pubic's Opinion</h6>
             <hr>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                  <img src="https://storage.googleapis.com/picboi-39298.appspot.com/final/N2nIjEzm_1000x800" style="width:100%">
+                  <div class="text">Caption Text</div>
+                </div>
+                <div class="mySlides fade">
+                  <img src="https://storage.googleapis.com/picboi-39298.appspot.com/final/OXiLQe6X_1000x800" style="width:100%">
+                  <div class="text">Caption Two</div>
+                </div>
+            </div>
+                <br>
+                <div style="text-align:center">
+                  <span class="dot"></span> 
+                  <span class="dot"></span>
+                </div>
+                <script>
+                    let slideIndex = 0;
+                    showSlides();
+                    
+                    function showSlides() {
+                      let i;
+                      let slides = document.getElementsByClassName("mySlides");
+                      let dots = document.getElementsByClassName("dot");
+                      for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                      }
+                      slideIndex++;
+                      if (slideIndex > slides.length) {slideIndex = 1}    
+                      for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                      }
+                      slides[slideIndex-1].style.display = "block";  
+                      dots[slideIndex-1].className += " active";
+                      setTimeout(showSlides, 4000); // Change image every 4 seconds
+                    }
+                    </script>
+        </div>
+        <div id="photos">
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/ryan-kavanaugh-1.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Harvey-Weinstein-Smiling.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/1576490825.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanaugh-4.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/23SE22D4LRD35JQKMTT4Q6SYF4.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/aa042488-6f7e-4e47-bde8-8104ccd5d906.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/ryan-kavanaugh-3.jpg"></span>
+            <span class="pics"><img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/harvey-weinstein-trail-metoo-crimes-300x241.jpg"></span>
         </div>
         <div id="bffs">
-            <h1>Ryan Kavanaugh And Harvey Weinstein</h1>
-            <p>The pictures below displays a seemingly friendly relation between the two former movie producers. </p>
+            <h1 class="boldtype">Ryan Kavanaugh And Harvey Weinstein</h1>
+            <p class="thintype">The pictures below displays a seemingly friendly relation between the two former movie producers. </p>
+            <img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/Ryan-Kavanaugh-and-Harvey-Weinstein.jpg">
         </div>
         <div id="bio">
-            <h2>About Ryan Kavanaugh</h2>
+            <img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/10/ryan-kavanaugh-business-man-upgrade.png">
+            <h2 class="titles">About Ryan Kavanaugh</h2>
                 <hr>
                 <p>Ryan Kavanaugh is an American film producer and film financier. He is the founder and former CEO of now bankrupt Relativity Media, the studio was the third largest Mini-major studio before bankruptcy hit back in 2015. Some speculate that the bankruptcy was due to poor management.</p>
             <h2>Founder / Owner of Triller</h2>
@@ -81,29 +325,39 @@
                 <div id="tweet">
                     <h3>Threatened Critics</h3>
                     <p>Later in 2021 Ryan Kavanaugh sent Ethan Klein a threatening message via the popular social media platform Instagram. Not only did he demean Ethan's podcast which was last rated in the top 20 of the entire united states, he also threatened legal action against constitutionally protected free speech</p>
+                    <img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-04-at-22.58.46-2.jpeg">
                 </div>
         </div>
         <div id="vids">
             <div id="fon">
                 <h3>Harvey Weinstein praising Ryan Kavanaugh</h3>
                 <p>In a video covering Ryan Kavanaugh's contributions to Sheriff's Youth Foundation Harvey Weinstein comes in for a brief appearance to show his appreciation for Ryan Kavanaugh and his work. Once again we see that Ryan Kavanaugh and Harvey Weinstein had either a good business relationship or even a friendship going.</p>
+                <video controls>
+                    <source src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2022/01/Ryan-kavanaugh-is-a-force-of-nature.mp4" type="video/mp4">
+                </video>
             </div>
             <div>
                 <h3>"How Ryan Kavanaugh Failed To Deliver $1 Million To Chairy" -Variety</h3>
                 <p>It was a late fall evening in 2007 in San Pedro. Habitat for Humanity was holding a ceremony with hundreds of volunteers in attendance, including President Jimmy Carter. Ryan Kavanaugh wanted to put on a show. He provided the charity an oversized donation check of $1,000,000 to help the charity build over 250 homes for the poor. That's an amazing thing to do right!? Well, it seems there was a discrepancy between Ryan's oversized check and the actual check. According to Variety, KavKav only ended up donating a measly $35,000. Variety further reported: “The failure caused disillusionment inside the non-profit and also some embarrassment — because the development came at the end of a weeklong event that was the charity's biggest in years, with former President Jimmy Carter in attendance. Said one key supporter of the charity, who asked not to be named: “No one had ever done something like that before. To get the kind of attention he did, in front of a U.S. president, and then to do nothing for it, was all just so shocking.”</p>
+                <img src="https://doesryankavanaughlooklikeharveyweinstein.com/wp-content/uploads/2022/04/kav-1.webp">
                 <h4>The Event Was Captured On Camera!</h4>
                 <p>Check out the video below to see KavKav caught in stunning 360p!</p>
+                <iframe width="415" height="233" src="https://www.youtube.com/embed/Zp4TXrT4n-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </main>
     <footer>
         <div>
-            <h1>STILL CAN'T TELL THE DIFFERENCE?</h1>
+            <h1 class="boldtype">STILL CAN'T TELL THE DIFFERENCE?</h1>
             <p>Here's some more side by side images of Ryan Kavanaugh & Harvey Weinstein.</p>
+            <img src="https://storage.googleapis.com/picboi-39298.appspot.com/final/bD17qXcu_1000x800">
         </div>
         <div>
-            <h2>Test Yourself With The Ryan Kavanaugh Game</h2>
+            <h2 class="boldtype">Test Yourself With The Ryan Kavanaugh Game</h2>
         </div>
-    </footer>     
+    </footer>
+    <script>
+        initComparisons();
+    </script>  
 </body>
 </html>
