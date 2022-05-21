@@ -371,3 +371,8 @@ img {
   left: 0%;
   }
 }
+@media screen (min-width: 600px) {
+  #header {
+    text-align: left;
+  }
+}
